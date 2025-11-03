@@ -1,0 +1,1 @@
+// src/redisClient.js\nconst redis = require('redis');\nconst client = redis.createClient({ url: process.env.REDIS_URL });\n// TODO: handle connect and error events\nmodule.exports = client;
