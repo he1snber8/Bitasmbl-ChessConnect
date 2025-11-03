@@ -1,0 +1,1 @@
+// src/gameState.js\nconst client = require('./redisClient');\n// TODO: implement createGame, getState, updateState and pub/sub channels\nmodule.exports = { /* createGame, ... */ };
