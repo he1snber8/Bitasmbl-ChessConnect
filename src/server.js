@@ -1,0 +1,1 @@
+// src/server.js\nconst express = require('express');\nconst jwt = require('jsonwebtoken');\nrequire('dotenv').config();\nconst app = express();\n// TODO: configure JWT auth middleware and basic routes\napp.listen(process.env.PORT || 3000);
