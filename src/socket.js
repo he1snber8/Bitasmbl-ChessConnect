@@ -1,0 +1,1 @@
+// src/socket.js\nmodule.exports = function(server) {\n  const io = require('socket.io')(server);\n  io.on('connection', socket => {\n    // TODO: join room, handle move events, emit updates\n  });\n};
