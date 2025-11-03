@@ -1,0 +1,1 @@
+// Dockerfile\nFROM node:14-alpine\nWORKDIR /app\nCOPY package.json .\nRUN npm install\nCOPY . .\nCMD ["node","src/server.js"]
