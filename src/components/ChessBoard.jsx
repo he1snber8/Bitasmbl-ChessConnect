@@ -1,0 +1,1 @@
+// src/components/ChessBoard.jsx\nimport React, { useEffect } from 'react';\nimport io from 'socket.io-client';\n// TODO: connect to Socket.IO and render chessboard UI\nexport default function ChessBoard() { return <div id=\"board\" />; }
