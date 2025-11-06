@@ -1,1 +1,38 @@
-// docker-compose.yml\nversion: '3'\nservices:\n  app:\n    build: .\n    ports:\n      - "3000:3000"\n    environment:\n      - REDIS_URL=redis://redis:6379\n      - DATABASE_URL=postgres://postgres:secret@db:5432/chess\n  redis:\n    image: redis:6-alpine\n  db:\n    image: postgres:13-alpine\n    environment:\n      - POSTGRES_DB=chess\n      - POSTGRES_USER=postgres\n      - POSTGRES_PASSWORD=secret
+version: "3.9"
+
+services:
+  node-server:
+    build: .
+    container_name: node_server
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=bitasmbl
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis_cache
+    restart: always
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+
+volumes:
+  pgdata:
