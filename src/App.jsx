@@ -1,1 +1,10 @@
-// src/App.jsx\nimport React from 'react';\nimport ChessBoard from './components/ChessBoard';\nfunction App() { return <ChessBoard />; }\nexport default App;
+import ChessBoard from "./components/ChessBoard";
+
+
+export default function App() {
+return (
+<div className="flex items-center justify-center h-screen bg-gray-900">
+<ChessBoard />
+</div>
+);
+}
